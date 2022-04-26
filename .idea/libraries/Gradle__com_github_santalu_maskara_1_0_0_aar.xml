@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.santalu:maskara:1.0.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/40fc5fb03724eadc2613c6cabb8174d4/transformed/maskara-1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/40fc5fb03724eadc2613c6cabb8174d4/transformed/maskara-1.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/40fc5fb03724eadc2613c6cabb8174d4/transformed/maskara-1.0.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.santalu/maskara/1.0.0/c08c199af95628cf8d8cb3ed62db9fcfe63e740c/maskara-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

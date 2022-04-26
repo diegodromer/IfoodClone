@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/cor_principal"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.UsuarioFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include">
+
+        <LinearLayout
+            android:padding="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:text="Email"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_edit"
+                android:padding="16dp"
+                android:id="@+id/edt_email"
+                android:drawableStart="@drawable/ic_email_red"
+                android:drawablePadding="16dp"
+                android:hint="Digite seu E-mail"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Senha"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edt_senha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_password"
+                android:drawablePadding="16dp"
+                android:hint="Digite sua senha"
+                android:background="@drawable/bg_edit"
+                android:padding="16dp"
+                android:layout_marginTop="8dp"
+                android:inputType="textPassword" />
+
+            <android.widget.Button
+                android:id="@+id/btn_criar_conta"
+                android:layout_marginTop="16dp"
+                android:text="Criar conta"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textColor="@color/cor_principal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_edit"/>
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/progressBar"
+                android:layout_gravity="center"
+                android:theme="@style/ThemeProgressBar"
+                android:layout_marginTop="16sp"
+                android:visibility="gone"
+                tools:visibility="visible"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
