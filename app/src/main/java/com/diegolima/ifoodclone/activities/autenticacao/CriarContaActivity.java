@@ -8,8 +8,8 @@ import android.widget.TextView;
 
 import com.diegolima.ifoodclone.R;
 import com.diegolima.ifoodclone.activities.adapter.ViewPagerAdapter;
-import com.diegolima.ifoodclone.fragment.EmpresaFragment;
-import com.diegolima.ifoodclone.fragment.UsuarioFragment;
+import com.diegolima.ifoodclone.fragment.empresa.EmpresaFragment;
+import com.diegolima.ifoodclone.fragment.usuario.UsuarioFragment;
 import com.google.android.material.tabs.TabLayout;
 
 public class CriarContaActivity extends AppCompatActivity {
@@ -44,7 +44,7 @@ public class CriarContaActivity extends AppCompatActivity {
 
 	private void iniciaComponentes() {
 		TextView text_toolbar = findViewById(R.id.text_toolbar);
-		text_toolbar.setText("Login");
+		text_toolbar.setText("Cadastro");
 
 		tab_layout = findViewById(R.id.tab_layout);
 		view_pager = findViewById(R.id.view_pager);

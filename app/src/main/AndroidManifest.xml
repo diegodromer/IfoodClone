@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.diegolima.ifoodclone">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IfoodClone">
+        <activity
+            android:name=".activities.usuario.UsuarioFavoritosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.usuario.UsuarioPerfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.empresa.EmpresaHomeActivity"
+            android:exported="false" />
         <activity
             android:name=".activities.empresa.EmpresaFinalizaCadastroActivity"
             android:exported="false" />
@@ -25,13 +37,13 @@
             android:name=".activities.autenticacao.RecuperarContaActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".activities.autenticacao.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".activities.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.autenticacao.LoginActivity"
+            android:name=".app.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

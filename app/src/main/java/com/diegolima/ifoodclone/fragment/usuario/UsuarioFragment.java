@@ -1,4 +1,4 @@
-package com.diegolima.ifoodclone.fragment;
+package com.diegolima.ifoodclone.fragment.usuario;
 
 import android.content.Context;
 import android.content.Intent;

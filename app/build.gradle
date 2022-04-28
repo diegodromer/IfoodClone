@@ -41,8 +41,18 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:20.0.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
-    //lib phone
+    //lib mask phone
     implementation 'com.github.santalu:maskara:1.0.0'
+
+    //lib mask to pricing
+    implementation 'com.github.BlacKCaT27:CurrencyEditText:2.0.2'
+
+    //lib de solicitacao de permissao
+    implementation 'io.github.ParkSangGwon:tedpermission-normal:3.3.0'
+
+    //navigation between screens
+    implementation 'androidx.navigation:navigation-fragment:2.4.2'
+    implementation 'androidx.navigation:navigation-ui:2.4.2'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

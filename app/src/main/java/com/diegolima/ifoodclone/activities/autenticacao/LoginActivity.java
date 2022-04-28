@@ -14,9 +14,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.diegolima.ifoodclone.R;
+import com.diegolima.ifoodclone.activities.empresa.EmpresaHomeActivity;
+import com.diegolima.ifoodclone.activities.empresa.EmpresaFinalizaCadastroActivity;
 import com.diegolima.ifoodclone.activities.usuario.UsuarioFinalizaCadastroActivity;
 import com.diegolima.ifoodclone.activities.usuario.UsuarioHomeActivity;
 import com.diegolima.ifoodclone.helper.FirebaseHelper;
+import com.diegolima.ifoodclone.model.Empresa;
 import com.diegolima.ifoodclone.model.Login;
 import com.diegolima.ifoodclone.model.Usuario;
 import com.google.firebase.database.DataSnapshot;
@@ -85,14 +88,52 @@ public class LoginActivity extends AppCompatActivity {
 			@Override
 			public void onDataChange(@NonNull DataSnapshot snapshot) {
 				login = snapshot.getValue(Login.class);
-				if (login != null){
-					if (login.getAcesso()){
-						startActivity(new Intent(getBaseContext(), UsuarioHomeActivity.class));
+				verificaAcesso(login);
+			}
 
-					}else{
-						recuperaUsuario();
-					}
+			@Override
+			public void onCancelled(@NonNull DatabaseError error) {
+
+			}
+		});
+	}
+
+	private void verificaAcesso(Login login){
+		if (login != null){
+
+			if (login.getTipo().equals("U")){
+				if (login.getAcesso()){
 					finish();
+					startActivity(new Intent(getBaseContext(), UsuarioHomeActivity.class));
+				}else{
+					recuperaUsuario();
+				}
+			}else{
+				if (login.getAcesso()){
+					finish();
+					startActivity(new Intent(getBaseContext(), EmpresaHomeActivity.class));
+				}else{
+					recuperaEmpresa();
+				}
+			}
+		}
+	}
+
+	private void recuperaEmpresa() {
+		DatabaseReference empresaRef = FirebaseHelper.getDatabaseReference()
+				.child("empresas")
+				.child(login.getId());
+		empresaRef.addListenerForSingleValueEvent(new ValueEventListener() {
+			@Override
+			public void onDataChange(@NonNull DataSnapshot snapshot) {
+				Empresa empresa = snapshot.getValue(Empresa.class);
+				if (empresa != null){
+					finish();
+					Intent intent = new Intent(getBaseContext(), EmpresaFinalizaCadastroActivity.class);
+					intent.putExtra("login", login);
+					intent.putExtra("empresa", empresa);
+					startActivity(intent);
+
 				}
 			}
 
@@ -112,6 +153,7 @@ public class LoginActivity extends AppCompatActivity {
 			public void onDataChange(@NonNull DataSnapshot snapshot) {
 				Usuario usuario = snapshot.getValue(Usuario.class);
 				if (usuario != null){
+					finish();
 					Intent intent = new Intent(getBaseContext(), UsuarioFinalizaCadastroActivity.class);
 					intent.putExtra("login", login);
 					intent.putExtra("usuario", usuario);

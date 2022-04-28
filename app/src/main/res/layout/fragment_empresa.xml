@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@color/cor_principal"
     android:layout_height="match_parent"
-    tools:context=".fragment.EmpresaFragment">
+    tools:context=".fragment.empresa.EmpresaFragment">
 
     <ScrollView
         android:layout_width="match_parent"
