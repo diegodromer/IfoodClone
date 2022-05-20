@@ -7,31 +7,59 @@
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/bg_btn.xml" value="0.1185" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/bg_edit.xml" value="0.141" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/bg_edit2.xml" value="0.106" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/ic_add.xml" value="0.1685" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/ic_add2.xml" value="0.115" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/ic_add_white.xml" value="0.136" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/ic_ajuda.xml" value="0.1155" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/ic_config_off.xml" value="0.111" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/ic_email.xml" value="0.1645" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/ic_email_red.xml" value="0.186" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/ic_home_off.xml" value="0.2645" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/ic_launcher_background.xml" value="0.186" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/ic_password.xml" value="0.186" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/ic_produto.xml" value="0.1145" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/ic_telefone.xml" value="0.106" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/ic_voltar.xml" value="0.186" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/ic_voltar_black.xml" value="0.1145" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_criar_conta.xml" value="0.21105072463768115" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_empresa_add_mais.xml" value="0.15092592592592594" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_empresa_categorias.xml" value="0.22" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_empresa_config.xml" value="0.14537037037037037" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_empresa_endereco.xml" value="0.25" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_empresa_entregas.xml" value="0.2" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_empresa_finaliza_cadastro.xml" value="0.17" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_empresa_form_produto.xml" value="0.25" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_empresa_home.xml" value="0.32456140350877194" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_empresa_recebimentos.xml" value="0.25" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_main.xml" value="0.1859375" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_recuperar_conta.xml" value="0.2713541666666667" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_splash.xml" value="0.36354166666666665" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_usuario_enderecos.xml" value="0.17456140350877192" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_usuario_favoritos.xml" value="0.17456140350877192" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_usuario_finaliza_cadastro.xml" value="0.25" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_usuario_form_endereco.xml" value="0.25" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_usuario_home.xml" value="0.32587719298245615" />
-        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_usuario_perfil.xml" value="0.17456140350877192" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_usuario_perfil.xml" value="0.22" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/add_mais_item.xml" value="0.33" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/categoria_item.xml" value="0.25" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/dialog_add_categoria.xml" value="0.25" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/divisor.xml" value="0.1537037037037037" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/endereco_item.xml" value="0.22" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/fragment_empresa.xml" value="0.13196555217831812" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/fragment_empresa_config.xml" value="0.25" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/fragment_empresa_pedido.xml" value="0.32456140350877194" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/fragment_empresa_produto.xml" value="0.18" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/fragment_usuario.xml" value="0.13196555217831812" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/fragment_usuario_home.xml" value="0.15092592592592594" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/fragment_usuario_perfil.xml" value="0.22" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/fragment_usuario_pesquisa.xml" value="0.16842105263157894" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/produto_item.xml" value="0.22" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/toolbar.xml" value="0.19635416666666666" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/toolbar2.xml" value="0.14814814814814814" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/toolbar_ADD.xml" value="0.14814814814814814" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/toolbar_add.xml" value="0.25" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/toolbar_salvar.xml" value="0.17792207792207793" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/menu/bottom_nav_menu_empresa.xml" value="0.1" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/menu/bottom_nav_menu_usuario.xml" value="0.1" />
       </map>

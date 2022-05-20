@@ -20,20 +20,25 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/l_logado"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                tools:visibility="visible">
 
                 <TextView
-                    android:id="@+id/text_usuario"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/text_empresa"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="16dp"
                     android:textColor="#3E3E3E"
                     android:textSize="16sp"
                     android:textStyle="bold"
+                    android:layout_marginEnd="32dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView3"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:text="Olá, Diego Oliveira"
                     tools:text="Olá, Diego Oliveira" />
 
                 <TextView
@@ -43,21 +48,27 @@
                     android:layout_marginBottom="16dp"
                     android:text="Meus dados"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/text_usuario"
-                    app:layout_constraintTop_toBottomOf="@+id/text_usuario" />
+                    app:layout_constraintStart_toStartOf="@+id/text_empresa"
+                    app:layout_constraintTop_toBottomOf="@+id/text_empresa" />
 
                 <ImageView
+                    android:id="@+id/imageView3"
                     android:layout_width="12dp"
                     android:layout_height="12dp"
                     android:layout_marginEnd="24dp"
                     android:src="@drawable/ic_seta_direita"
                     app:layout_constraintBottom_toBottomOf="@+id/textView2"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/text_usuario" />
+                    app:layout_constraintTop_toTopOf="@+id/text_empresa" />
 
+                <include
+                    layout="@layout/divisor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <include layout="@layout/divisor" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/l_deslogado"
@@ -71,7 +82,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="24dp"
                     android:text="Falta pouco para\nmatar sua fome!"
                     android:textColor="#3E3E3E"
                     android:textSize="20sp"
@@ -109,7 +120,8 @@
                         android:background="@drawable/bg_btn"
                         android:padding="16dp"
                         android:text="Entradar"
-                        android:textAllCaps="false" />
+                        android:textAllCaps="false"
+                        android:textSize="16dp" />
 
                     <android.widget.Button
                         android:id="@+id/btn_cadastrar"
@@ -120,7 +132,8 @@
                         android:background="@drawable/bg_btn"
                         android:padding="16dp"
                         android:text="Cadastrar"
-                        android:textAllCaps="false" />
+                        android:textAllCaps="false"
+                        android:textSize="16dp" />
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -172,6 +185,7 @@
             <include layout="@layout/divisor" />
 
             <LinearLayout
+                android:id="@+id/menu_favoritos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -185,7 +199,6 @@
                     android:src="@drawable/ic_favorito_off" />
 
                 <LinearLayout
-                    android:id="@+id/menu_favoritos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"

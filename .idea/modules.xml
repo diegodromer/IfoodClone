@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Ifood_Clone.iml" filepath="$PROJECT_DIR$/.idea/modules/Ifood_Clone.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Ifood_Clone.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Ifood_Clone.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Ifood_Clone.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Ifood_Clone.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Ifood_Clone.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Ifood_Clone.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Ifood_Clone.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Ifood_Clone.app.unitTest.iml" />
     </modules>
   </component>
 </project>

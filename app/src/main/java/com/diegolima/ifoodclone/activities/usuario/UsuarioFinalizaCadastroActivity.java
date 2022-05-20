@@ -48,7 +48,7 @@ public class UsuarioFinalizaCadastroActivity extends AppCompatActivity {
 				if (edt_telefone.isDone()){
 					ocultarTeclado();
 					progressBar.setVisibility(View.VISIBLE);
-					finalizaCadastro(nome);
+					finalizaCadastro(nome, telefone);
 				}else{
 					edt_telefone.requestFocus();
 					edt_telefone.setError("Telefone inválido.");
@@ -63,10 +63,11 @@ public class UsuarioFinalizaCadastroActivity extends AppCompatActivity {
 		}
 	}
 
-	private void finalizaCadastro(String nome){
+	private void finalizaCadastro(String nome, String telefone){
 		login.setAcesso(true);
 		login.salvar();
 		usuario.setNome(nome);
+		usuario.setTelefone(telefone);
 		usuario.salvar();
 
 		finish();
