@@ -131,7 +131,6 @@ public class EmpresaProdutoFragment extends Fragment implements ProdutoAdapterEm
 		});
 	}
 
-
 	private void configCliques(){
 		fab_add.setOnClickListener(view ->
 				startActivity(new Intent(requireActivity(), EmpresaFormProdutoActivity.class)));

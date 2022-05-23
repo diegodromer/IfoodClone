@@ -50,35 +50,44 @@ public class UsuarioPerfilFragment extends Fragment {
 		verificaAcesso();
 	}
 
-	private void verificaAcesso(){
-		if (FirebaseHelper.getAutenticado()){
+	private void verificaAcesso() {
+		if (FirebaseHelper.getAutenticado()) {
 			l_deslogado.setVisibility(View.GONE);
 			l_logado.setVisibility(View.VISIBLE);
 			text_usuario.setText(FirebaseHelper.getAuth().getCurrentUser().getDisplayName());
 			menu_deslogar.setVisibility(View.VISIBLE);
-		}else{
+		} else {
 			l_deslogado.setVisibility(View.VISIBLE);
 			l_logado.setVisibility(View.GONE);
 			menu_deslogar.setVisibility(View.GONE);
 		}
 	}
 
-	private void configCliques(){
+	private void verificaAutenticacao(Class<?> clazz) {
+		if (FirebaseHelper.getAutenticado()) {
+			startActivity(new Intent(requireActivity(), clazz));
+		} else {
+			startActivity(new Intent(requireActivity(), LoginActivity.class));
+		}
+	}
+
+	private void configCliques() {
 		btn_entrar.setOnClickListener(view -> startActivity(new Intent(requireActivity(), LoginActivity.class)));
 		btn_cadastrar.setOnClickListener(view -> startActivity(new Intent(requireActivity(), CriarContaActivity.class)));
 		menu_deslogar.setOnClickListener(view -> deslogar());
 
-		menu_perfil.setOnClickListener(view -> startActivity(new Intent(requireActivity(), UsuarioPerfilActivity.class)));
-		menu_favoritos.setOnClickListener(view -> startActivity(new Intent(requireActivity(), UsuarioFavoritosActivity.class)));
-		menu_enderecos.setOnClickListener(view -> startActivity(new Intent(requireActivity(), UsuarioEnderecosActivity.class)));
+		menu_perfil.setOnClickListener(view -> verificaAutenticacao(UsuarioPerfilActivity.class));
+		menu_favoritos.setOnClickListener(view -> verificaAutenticacao(UsuarioFavoritosActivity.class));
+		menu_enderecos.setOnClickListener(view -> verificaAutenticacao(UsuarioEnderecosActivity.class));
+
 	}
 
-	private void deslogar(){
+	private void deslogar() {
 		FirebaseHelper.getAuth().signOut();
 		Navigation.findNavController(requireActivity(), R.id.nav_host_fragment).navigate(R.id.menu_home);
 	}
 
-	private void iniciaComponentes(View view){
+	private void iniciaComponentes(View view) {
 		l_logado = view.findViewById(R.id.l_logado);
 		l_deslogado = view.findViewById(R.id.l_deslogado);
 		menu_perfil = view.findViewById(R.id.menu_perfil);
