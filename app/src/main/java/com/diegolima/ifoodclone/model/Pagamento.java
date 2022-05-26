@@ -1,7 +1,5 @@
 package com.diegolima.ifoodclone.model;
 
-import androidx.navigation.PopUpToBuilder;
-
 import com.diegolima.ifoodclone.helper.FirebaseHelper;
 import com.google.firebase.database.DatabaseReference;
 

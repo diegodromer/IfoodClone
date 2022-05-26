@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IfoodClone">
         <activity
+            android:name=".UsuarioSelecionaPagamentoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UsuarioSelecionaEnderecoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.usuario.CarrinhoActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.empresa.EmpresaProdutoDetalheActivity"
             android:exported="false" />
         <activity
@@ -21,7 +30,7 @@
             android:name=".activities.usuario.UsuarioFormEnderecoActivity"
             android:exported="false" />
         <activity
-            android:name=".fragment.empresa.EmpresaFormProdutoActivity"
+            android:name=".activities.empresa.EmpresaFormProdutoActivity"
             android:exported="false" />
         <activity
             android:name=".activities.empresa.EmpresaEntregasActivity"

@@ -13,12 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.diegolima.ifoodclone.R;
 import com.diegolima.ifoodclone.activities.adapter.ProdutoAdapterEmpresa;
+import com.diegolima.ifoodclone.activities.empresa.EmpresaFormProdutoActivity;
 import com.diegolima.ifoodclone.helper.FirebaseHelper;
-import com.diegolima.ifoodclone.model.Categoria;
 import com.diegolima.ifoodclone.model.Produto;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;

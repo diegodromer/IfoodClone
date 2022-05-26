@@ -14,7 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.diegolima.ifoodclone.R;
-import com.diegolima.ifoodclone.activities.adapter.AdapterCardapio;
+import com.diegolima.ifoodclone.activities.adapter.CardapioAdapter;
 import com.diegolima.ifoodclone.activities.autenticacao.LoginActivity;
 import com.diegolima.ifoodclone.helper.FirebaseHelper;
 import com.diegolima.ifoodclone.helper.GetMask;
@@ -32,12 +32,11 @@ import com.like.OnLikeListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class EmpresaCardapioActivity extends AppCompatActivity {
 
-	private AdapterCardapio adapterCardapio;
+	private CardapioAdapter adapterCardapio;
 
 	private final List<Produto> produtoList = new ArrayList<>();
 	private final List<Categoria> categoriaList = new ArrayList<>();
@@ -85,7 +84,7 @@ public class EmpresaCardapioActivity extends AppCompatActivity {
 	private void configRv(){
 		rv_categorias.setLayoutManager(new LinearLayoutManager(this));
 		rv_categorias.setHasFixedSize(true);
-		adapterCardapio = new AdapterCardapio(categoriaCardapioList, getBaseContext());
+		adapterCardapio = new CardapioAdapter(categoriaCardapioList, this);
 		rv_categorias.setAdapter(adapterCardapio);
 	}
 
