@@ -21,6 +21,7 @@ public class EntregaDAO {
 	}
 
 	public void salvarEndereco(Endereco endereco){
+
 		ContentValues cv = new ContentValues();
 		cv.put(DbHelper.COLUNA_FORMA_PAGAMENTO, "");
 		cv.put(DbHelper.COLUNA_ENDERECO_LOGRADOURO, endereco.getLogradouro());
@@ -30,13 +31,15 @@ public class EntregaDAO {
 
 		try {
 			write.insert(DbHelper.TABELA_ENTREGA, null, cv);
-			Log.i("INFO_DB", "onCreate: sucesso ao salvar tabela.");
+			Log.i("INFO_DB", "onCreate: Sucesso ao salvar a tebela.");
 		} catch (Exception e) {
-			Log.i("INFO_DB", "onCreate: Erro ao salvar Tabela.");
+			Log.i("INFO_DB", "onCreate: Erro ao salvar a tebela..");
 		}
+
 	}
 
 	public void atualizarEndereco(Endereco endereco){
+
 		ContentValues cv = new ContentValues();
 		cv.put(DbHelper.COLUNA_ENDERECO_LOGRADOURO, endereco.getLogradouro());
 		cv.put(DbHelper.COLUNA_ENDERECO_BAIRRO, endereco.getBairro());
@@ -45,10 +48,11 @@ public class EntregaDAO {
 
 		try {
 			write.update(DbHelper.TABELA_ENTREGA, cv, null, null);
-			Log.i("INFO_DB", "onCreate: sucesso ao atualizar o endereco.");
+			Log.i("INFO_DB", "onCreate: Sucesso ao atualizar o endereço.");
 		} catch (Exception e) {
-			Log.i("INFO_DB", "onCreate: Erro ao atualizar o endereco.");
+			Log.i("INFO_DB", "onCreate: Erro ao atualizar o endereço");
 		}
+
 	}
 
 	public void salvarPagamento(String formaPagamento){
@@ -86,5 +90,26 @@ public class EntregaDAO {
 			entregaPedido.setEndereco(endereco);
 		}
 		return entregaPedido;
+	}
+
+	public Endereco getEndereco(){
+		Endereco endereco = null;
+
+		String sql = " SELECT * FROM " + DbHelper.TABELA_ENTREGA + ";";
+		Cursor cursor = read.rawQuery(sql, null);
+
+		while (cursor.moveToNext()){
+			String logradouro = cursor.getString(cursor.getColumnIndex(DbHelper.COLUNA_ENDERECO_LOGRADOURO));
+			String bairro = cursor.getString(cursor.getColumnIndex(DbHelper.COLUNA_ENDERECO_BAIRRO));
+			String municipio = cursor.getString(cursor.getColumnIndex(DbHelper.COLUNA_ENDERECO_MUNICIPIO));
+			String referencia = cursor.getString(cursor.getColumnIndex(DbHelper.COLUNA_ENDERECO_REFERENCIA));
+
+			endereco = new Endereco();
+			endereco.setLogradouro(logradouro);
+			endereco.setBairro(bairro);
+			endereco.setMunicipio(municipio);
+			endereco.setReferencia(referencia);
+		}
+		return endereco;
 	}
 }

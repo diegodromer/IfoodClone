@@ -1,6 +1,7 @@
 package com.diegolima.ifoodclone.activities.empresa;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -28,6 +29,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 public class EmpresaProdutoDetalheActivity extends AppCompatActivity {
+
+	private final int REQUEST_CARDAPIO = 100;
 
 	private ImageView img_produto;
 	private TextView text_produto;
@@ -95,7 +98,9 @@ public class EmpresaProdutoDetalheActivity extends AppCompatActivity {
 		if (empresaDAO.getEmpresa() == null){
 			empresaDAO.salvar(empresa);
 		}
-		startActivity(new Intent(this, CarrinhoActivity.class));
+
+		Intent intent = new Intent(this, CarrinhoActivity.class);
+		startActivityForResult(intent, REQUEST_CARDAPIO);
 	}
 
 	private void addQtdItem() {
@@ -179,5 +184,16 @@ public class EmpresaProdutoDetalheActivity extends AppCompatActivity {
 		text_total_produto = findViewById(R.id.text_total_produto);
 		btn_remover = findViewById(R.id.btn_remover);
 		btn_add = findViewById(R.id.btn_add);
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+
+		if (resultCode == RESULT_OK){
+			if (requestCode == REQUEST_CARDAPIO){
+				finish();
+			}
+		}
 	}
 }

@@ -39,7 +39,7 @@
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/textNomeProduto"
+                android:id="@+id/text_nome_produto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -63,7 +63,7 @@
                 tools:text="R$ 6,00" />
 
             <ImageButton
-                android:id="@+id/ibAdd"
+                android:id="@+id/ib_add"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:background="@drawable/bg_add_tambem"

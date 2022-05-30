@@ -12,10 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IfoodClone">
         <activity
-            android:name=".UsuarioSelecionaPagamentoActivity"
+            android:name=".UsuarioResumoPedidoActivity"
             android:exported="false" />
         <activity
-            android:name=".UsuarioSelecionaEnderecoActivity"
+            android:name=".activities.usuario.UsuarioSelecionaPagamentoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.usuario.UsuarioSelecionaEnderecoActivity"
             android:exported="false" />
         <activity
             android:name=".activities.usuario.CarrinhoActivity"

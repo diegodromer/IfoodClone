@@ -25,11 +25,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="#F2F2F2"
             android:orientation="vertical">
 
             <LinearLayout
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:id="@+id/ll_endereco"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
@@ -109,34 +112,43 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_produtos"
+                    tools:listitem="@layout/adapter_carrinho"
+                    tools:itemCount="2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
-                <include
-                    layout="@layout/divisor"
+                <LinearLayout
+                    android:id="@+id/ll_btn_add_mais"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp" />
+                    android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/btn_add_mais"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@android:color/transparent"
-                    android:text="Adicionar mais"
-                    android:textAllCaps="false"
-                    android:textColor="@color/cor_principal"
-                    android:textSize="16sp" />
+                    <include
+                        layout="@layout/divisor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp" />
 
-                <include
-                    layout="@layout/divisor"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp" />
+                    <Button
+                        android:id="@+id/btn_add_mais"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@android:color/transparent"
+                        android:text="Adicionar mais"
+                        android:textAllCaps="false"
+                        android:textColor="@color/cor_principal"
+                        android:textSize="16sp" />
+
+                    <include
+                        layout="@layout/divisor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -182,7 +194,7 @@
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/text_entrega"
+                        android:id="@+id/text_taxa_entrega"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -241,7 +253,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="50dp" />
+                    android:layout_marginBottom="24dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -305,7 +317,7 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/bg_btn"
             android:backgroundTint="@color/cor_principal"
-            android:text="Continuar"
+            android:text="Selecione o endereço"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="16sp" />

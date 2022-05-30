@@ -40,4 +40,12 @@
     <style name="ThemeBnvOn">
         <item name="android:textSize">14sp</item>
     </style>
+
+    <style name="bottomSheetDialog" parent="Theme.Design.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/bottomSheetWrapper</item>
+    </style>
+
+    <style name="bottomSheetWrapper" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
 </resources>

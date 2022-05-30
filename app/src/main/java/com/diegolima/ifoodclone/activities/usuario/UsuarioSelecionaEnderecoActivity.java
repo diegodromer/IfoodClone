@@ -108,5 +108,9 @@ public class UsuarioSelecionaEnderecoActivity extends AppCompatActivity implemen
 
 	@Override
 	public void OnClick(Endereco endereco) {
+		Intent intent = new Intent();
+		intent.putExtra("enderecoSelecionado", endereco);
+		setResult(RESULT_OK, intent);
+		finish();
 	}
 }

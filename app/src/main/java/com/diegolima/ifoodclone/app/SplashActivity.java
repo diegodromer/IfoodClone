@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.diegolima.ifoodclone.DAO.ItemPedidoDAO;
 import com.diegolima.ifoodclone.R;
 import com.diegolima.ifoodclone.activities.empresa.EmpresaHomeActivity;
 import com.diegolima.ifoodclone.activities.empresa.EmpresaFinalizaCadastroActivity;
@@ -31,7 +32,13 @@ public class SplashActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
 
+		limparSQLite();
 		verificaAutentica();
+	}
+
+	private void limparSQLite(){
+		ItemPedidoDAO itemPedidoDAO = new ItemPedidoDAO(getBaseContext());
+		itemPedidoDAO.limparCarrinho();
 	}
 
 	private void verificaAutentica(){

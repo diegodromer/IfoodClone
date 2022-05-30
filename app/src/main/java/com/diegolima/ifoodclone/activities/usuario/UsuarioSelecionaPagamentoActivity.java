@@ -11,60 +11,72 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.diegolima.ifoodclone.DAO.EmpresaDAO;
 import com.diegolima.ifoodclone.R;
 import com.diegolima.ifoodclone.activities.adapter.SelecionaEnderecoAdapter;
+import com.diegolima.ifoodclone.activities.adapter.SelecionaPagamentoAdapter;
 import com.diegolima.ifoodclone.helper.FirebaseHelper;
+import com.diegolima.ifoodclone.model.Empresa;
 import com.diegolima.ifoodclone.model.Endereco;
+import com.diegolima.ifoodclone.model.Pagamento;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
-public class UsuarioSelecionaPagamentoActivity extends AppCompatActivity {
+public class UsuarioSelecionaPagamentoActivity extends AppCompatActivity implements SelecionaPagamentoAdapter.OnClickListener {
+
+	private final List<Pagamento> pagamentoList = new ArrayList<>();
+	private SelecionaPagamentoAdapter selecionaPagamentoAdapter;
 
 	private RecyclerView rv_pagamentos;
 	private ProgressBar progressBar;
 	private TextView text_info;
+
+	private EmpresaDAO empresaDAO;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_usuario_seleciona_pagamento);
 
+		empresaDAO = new EmpresaDAO(getBaseContext());
+
 		iniciaComponentes();
 		configCliques();
 		configRv();
+		recuperaPagamentos();
 	}
 
 	private void configRv(){
 		rv_pagamentos.setLayoutManager(new LinearLayoutManager(this));
 		rv_pagamentos.setHasFixedSize(true);
-		selecionaEnderecoAdapter = new SelecionaEnderecoAdapter(enderecoList, this);
-		rv_pagamentos.setAdapter(selecionaEnderecoAdapter);
+		selecionaPagamentoAdapter = new SelecionaPagamentoAdapter(pagamentoList, this);
+		rv_pagamentos.setAdapter(selecionaPagamentoAdapter);
 	}
 
-	private void recuperaEndereco(){
-		DatabaseReference enderecosRef = FirebaseHelper.getDatabaseReference()
-				.child("enderecos")
-				.child(FirebaseHelper.getIdFirebase());
-		enderecosRef.addListenerForSingleValueEvent(new ValueEventListener() {
+	private void recuperaPagamentos(){
+		DatabaseReference pagamentosRef = FirebaseHelper.getDatabaseReference()
+				.child("recebimentos")
+				.child(empresaDAO.getEmpresa().getId());
+		pagamentosRef.addListenerForSingleValueEvent(new ValueEventListener() {
 			@Override
 			public void onDataChange(@NonNull DataSnapshot snapshot) {
-				if (snapshot.exists()) {
-					enderecoList.clear();
+				if (snapshot.exists()){
 					for (DataSnapshot ds : snapshot.getChildren()) {
-						Endereco endereco = ds.getValue(Endereco.class);
-						enderecoList.add(endereco);
+						Pagamento pagamento = ds.getValue(Pagamento.class);
+						pagamentoList.add(pagamento);
 					}
 					text_info.setText("");
 				}else{
-					text_info.setText("Nenhuma endereco cadastrado.");
+					text_info.setText("Nenhuma forma de pagamento habilitada.");
 				}
 				progressBar.setVisibility(View.GONE);
-				Collections.reverse(enderecoList);
-				selecionaEnderecoAdapter.notifyDataSetChanged();
+				selecionaPagamentoAdapter.notifyDataSetChanged();
 			}
 
 			@Override
@@ -85,5 +97,13 @@ public class UsuarioSelecionaPagamentoActivity extends AppCompatActivity {
 		rv_pagamentos = findViewById(R.id.rv_pagamentos);
 		progressBar = findViewById(R.id.progressBar);
 		text_info = findViewById(R.id.text_info);
+	}
+
+	@Override
+	public void OnClick(Pagamento pagamento) {
+		Intent intent = new Intent();
+		intent.putExtra("pagamentoSelecionado", pagamento);
+		setResult(RESULT_OK, intent);
+		finish();
 	}
 }

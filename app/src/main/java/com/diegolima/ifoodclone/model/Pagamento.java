@@ -3,9 +3,10 @@ package com.diegolima.ifoodclone.model;
 import com.diegolima.ifoodclone.helper.FirebaseHelper;
 import com.google.firebase.database.DatabaseReference;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Pagamento {
+public class Pagamento implements Serializable {
 
 	private String descricao;
 	private Boolean status = false;

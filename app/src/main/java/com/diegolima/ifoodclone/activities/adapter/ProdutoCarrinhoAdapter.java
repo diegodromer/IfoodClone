@@ -1,8 +1,6 @@
 package com.diegolima.ifoodclone.activities.adapter;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.diegolima.ifoodclone.R;
-import com.diegolima.ifoodclone.activities.empresa.EmpresaProdutoDetalheActivity;
 import com.diegolima.ifoodclone.helper.GetMask;
 import com.diegolima.ifoodclone.model.Produto;
 import com.squareup.picasso.Picasso;
@@ -70,9 +67,9 @@ public class ProdutoCarrinhoAdapter extends RecyclerView.Adapter<ProdutoCarrinho
 			super(itemView);
 
 			imagemProduto = itemView.findViewById(R.id.imagemProduto);
-			textNomeProduto = itemView.findViewById(R.id.textNomeProduto);
+			textNomeProduto = itemView.findViewById(R.id.text_nome_produto);
 			textPrecoProduto = itemView.findViewById(R.id.textPrecoProduto);
-			ibAdd = itemView.findViewById(R.id.ibAdd);
+			ibAdd = itemView.findViewById(R.id.ib_add);
 		}
 	}
 }
