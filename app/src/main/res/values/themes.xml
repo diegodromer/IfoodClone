@@ -41,11 +41,11 @@
         <item name="android:textSize">14sp</item>
     </style>
 
-    <style name="bottomSheetDialog" parent="Theme.Design.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/bottomSheetWrapper</item>
+    <style name="BottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/bottomSheetStyleWrapper</item>
     </style>
 
-    <style name="bottomSheetWrapper" parent="Widget.Design.BottomSheet.Modal">
+    <style name="bottomSheetStyleWrapper" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@android:color/transparent</item>
     </style>
 </resources>

@@ -19,7 +19,7 @@ public class SelecionaPagamentoAdapter extends RecyclerView.Adapter<SelecionaPag
 	private final List<Pagamento> pagamentoList;
 	private final OnClickListener onClickListener;
 
-	private int lastSelectPosition = -1;
+	private int lastSelectedPosition = -1;
 
 	public SelecionaPagamentoAdapter(List<Pagamento> pagamentoList, OnClickListener onClickListener) {
 		this.pagamentoList = pagamentoList;
@@ -35,18 +35,21 @@ public class SelecionaPagamentoAdapter extends RecyclerView.Adapter<SelecionaPag
 
 	@Override
 	public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+
 		Pagamento pagamento = pagamentoList.get(position);
+
 		holder.text_forma_pagamento.setText(pagamento.getDescricao());
 
-		if (lastSelectPosition == position){
+		if(lastSelectedPosition == position){
 			holder.radioButton.setChecked(true);
 		}
 
 		holder.radioButton.setOnClickListener(v -> {
-			lastSelectPosition = holder.getAdapterPosition();
+			lastSelectedPosition = position;
 			notifyDataSetChanged();
 			onClickListener.OnClick(pagamento);
 		});
+
 	}
 
 	@Override

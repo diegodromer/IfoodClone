@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.tsuryo:Swipeable-RecyclerView:1.1@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/47d9a5455ba2b87ed7eeec764f0d907b/transformed/jetified-Swipeable-RecyclerView-1.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/47d9a5455ba2b87ed7eeec764f0d907b/transformed/jetified-Swipeable-RecyclerView-1.1/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/47d9a5455ba2b87ed7eeec764f0d907b/transformed/jetified-Swipeable-RecyclerView-1.1/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/2d42fdf5d30f099fb98958d1eae9eb47/transformed/jetified-Swipeable-RecyclerView-1.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2d42fdf5d30f099fb98958d1eae9eb47/transformed/jetified-Swipeable-RecyclerView-1.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2d42fdf5d30f099fb98958d1eae9eb47/transformed/jetified-Swipeable-RecyclerView-1.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

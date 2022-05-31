@@ -47,9 +47,13 @@ public class UsuarioSelecionaPagamentoActivity extends AppCompatActivity impleme
 		empresaDAO = new EmpresaDAO(getBaseContext());
 
 		iniciaComponentes();
+
 		configCliques();
+
 		configRv();
+
 		recuperaPagamentos();
+
 	}
 
 	private void configRv(){
@@ -66,33 +70,35 @@ public class UsuarioSelecionaPagamentoActivity extends AppCompatActivity impleme
 		pagamentosRef.addListenerForSingleValueEvent(new ValueEventListener() {
 			@Override
 			public void onDataChange(@NonNull DataSnapshot snapshot) {
-				if (snapshot.exists()){
-					for (DataSnapshot ds : snapshot.getChildren()) {
+				if(snapshot.exists()){
+					for (DataSnapshot ds : snapshot.getChildren()){
 						Pagamento pagamento = ds.getValue(Pagamento.class);
 						pagamentoList.add(pagamento);
 					}
 					text_info.setText("");
-				}else{
+				}else {
 					text_info.setText("Nenhuma forma de pagamento habilitada.");
 				}
+
 				progressBar.setVisibility(View.GONE);
 				selecionaPagamentoAdapter.notifyDataSetChanged();
+
 			}
 
 			@Override
 			public void onCancelled(@NonNull DatabaseError error) {
+
 			}
 		});
 	}
 
-	private void configCliques() {
-		findViewById(R.id.ib_voltar).setOnClickListener(view -> finish());
+	private void configCliques(){
+		findViewById(R.id.ib_voltar).setOnClickListener(v -> finish());
 	}
-
 
 	private void iniciaComponentes(){
 		TextView text_toolbar = findViewById(R.id.text_toolbar);
-		text_toolbar.setText("Formas de pagamentos");
+		text_toolbar.setText("Formas de pagamento");
 
 		rv_pagamentos = findViewById(R.id.rv_pagamentos);
 		progressBar = findViewById(R.id.progressBar);

@@ -28,8 +28,8 @@ public class CardapioAdapter extends RecyclerView.Adapter<CardapioAdapter.MyView
 	@NonNull
 	@Override
 	public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-		View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_cardapio, parent, false);
-		return new MyViewHolder(itemView);
+		View itemVIew = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_cardapio, parent, false);
+		return new MyViewHolder(itemVIew);
 	}
 
 	@Override
@@ -40,11 +40,11 @@ public class CardapioAdapter extends RecyclerView.Adapter<CardapioAdapter.MyView
 
 		holder.rvProdutos.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false));
 		holder.rvProdutos.setHasFixedSize(true);
+		ProdutoCardapioAdapter produtoCardapioAdapter = new ProdutoCardapioAdapter(categoria.getProdutoList(), activity);
+		holder.rvProdutos.setAdapter(produtoCardapioAdapter);
 
-		ProdutoCardapioAdapter adapterProdutoCardapio = new ProdutoCardapioAdapter(categoria.getProdutoList(), activity);
-		holder.rvProdutos.setAdapter(adapterProdutoCardapio);
+		produtoCardapioAdapter.notifyDataSetChanged();
 
-		adapterProdutoCardapio.notifyDataSetChanged();
 	}
 
 	@Override
@@ -52,14 +52,13 @@ public class CardapioAdapter extends RecyclerView.Adapter<CardapioAdapter.MyView
 		return categoriaList.size();
 	}
 
-	static class MyViewHolder extends RecyclerView.ViewHolder {
+	static class MyViewHolder extends RecyclerView.ViewHolder{
 
 		TextView textCategoriaNome;
 		RecyclerView rvProdutos;
 
 		public MyViewHolder(@NonNull View itemView) {
 			super(itemView);
-
 			textCategoriaNome = itemView.findViewById(R.id.textCategoriaNome);
 			rvProdutos = itemView.findViewById(R.id.rvProdutos);
 		}

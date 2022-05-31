@@ -33,12 +33,13 @@ public class ProdutoCarrinhoAdapter extends RecyclerView.Adapter<ProdutoCarrinho
 	@NonNull
 	@Override
 	public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-		View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_add_tambem, parent, false);
-		return new MyViewHolder(itemView);
+		View itemVIew = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_add_tambem, parent, false);
+		return new MyViewHolder(itemVIew);
 	}
 
 	@Override
 	public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+
 		Produto produto = produtoList.get(position);
 
 		Picasso.get().load(produto.getUrlImagem()).into(holder.imagemProduto);
@@ -46,10 +47,7 @@ public class ProdutoCarrinhoAdapter extends RecyclerView.Adapter<ProdutoCarrinho
 		holder.textPrecoProduto.setText(context.getString(R.string.text_valor, GetMask.getValor(produto.getValor())));
 
 		holder.ibAdd.setOnClickListener(v -> onClickListener.OnClick(produto));
-	}
 
-	public interface OnClickListener{
-		void OnClick(Produto produto);
 	}
 
 	@Override
@@ -57,19 +55,23 @@ public class ProdutoCarrinhoAdapter extends RecyclerView.Adapter<ProdutoCarrinho
 		return produtoList.size();
 	}
 
-	static class MyViewHolder extends RecyclerView.ViewHolder {
+	public interface OnClickListener {
+		void OnClick(Produto produto);
+	}
+
+	static class MyViewHolder extends RecyclerView.ViewHolder{
 
 		ImageView imagemProduto;
-		TextView textNomeProduto,textPrecoProduto;
+		TextView textNomeProduto, textPrecoProduto;
 		ImageButton ibAdd;
 
 		public MyViewHolder(@NonNull View itemView) {
 			super(itemView);
 
 			imagemProduto = itemView.findViewById(R.id.imagemProduto);
-			textNomeProduto = itemView.findViewById(R.id.text_nome_produto);
+			textNomeProduto = itemView.findViewById(R.id.textNomeProduto);
 			textPrecoProduto = itemView.findViewById(R.id.textPrecoProduto);
-			ibAdd = itemView.findViewById(R.id.ib_add);
+			ibAdd = itemView.findViewById(R.id.ibAdd);
 		}
 	}
 }

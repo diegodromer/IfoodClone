@@ -28,7 +28,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
-public class EmpresaProdutoDetalheActivity extends AppCompatActivity {
+public class EmpresaProdutoDetalhesActivity extends AppCompatActivity {
 
 	private final int REQUEST_CARDAPIO = 100;
 
@@ -49,7 +49,7 @@ public class EmpresaProdutoDetalheActivity extends AppCompatActivity {
 	private Produto produto;
 	private Empresa empresa;
 
-	EmpresaDAO empresaDAO;
+	private EmpresaDAO empresaDAO;
 	private ItemPedidoDAO itemPedidoDAO;
 
 	private int quantidade = 1;
@@ -57,7 +57,7 @@ public class EmpresaProdutoDetalheActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_empresa_produto_detalhe);
+		setContentView(R.layout.activity_empresa_produto_detalhes);
 
 		empresaDAO = new EmpresaDAO(getBaseContext());
 		itemPedidoDAO = new ItemPedidoDAO(getBaseContext());
@@ -65,27 +65,31 @@ public class EmpresaProdutoDetalheActivity extends AppCompatActivity {
 		iniciaComponentes();
 
 		Bundle bundle = getIntent().getExtras();
-		if (bundle != null) {
+		if(bundle != null){
 			produto = (Produto) bundle.getSerializable("produtoSelecionado");
+
 			recuperaEmpresa();
+
 			configDados();
 		}
+
 		configCliques();
+
 	}
 
-	private void addItemCarrinho() {
-		if (empresaDAO.getEmpresa() != null) {
-			if (produto.getIdEmpresa().equals(empresaDAO.getEmpresa().getId())) {
+	private void addItemCarrinho(){
+		if(empresaDAO.getEmpresa() != null){
+			if(produto.getIdEmpresa().equals(empresaDAO.getEmpresa().getId())){
 				salvarProduto();
-			} else {
-				Snackbar.make(btn_adicionar, "Empresas diferentes", Snackbar.LENGTH_LONG).show();
+			}else {
+				Snackbar.make(btn_adicionar, "Empresas difentes.", Snackbar.LENGTH_LONG).show();
 			}
-		} else {
+		}else {
 			salvarProduto();
 		}
 	}
 
-	private void salvarProduto() {
+	private void salvarProduto(){
 		ItemPedido itemPedido = new ItemPedido();
 		itemPedido.setQuantidade(quantidade);
 		itemPedido.setUrlImagem(produto.getUrlImagem());
@@ -95,28 +99,32 @@ public class EmpresaProdutoDetalheActivity extends AppCompatActivity {
 
 		itemPedidoDAO.salvar(itemPedido);
 
-		if (empresaDAO.getEmpresa() == null){
-			empresaDAO.salvar(empresa);
-		}
+		if(empresaDAO.getEmpresa() == null) empresaDAO.salvar(empresa);
 
 		Intent intent = new Intent(this, CarrinhoActivity.class);
 		startActivityForResult(intent, REQUEST_CARDAPIO);
+
 	}
 
-	private void addQtdItem() {
+	private void addQtdItem(){
 		quantidade++;
 		btn_remover.setImageResource(R.drawable.ic_remove_red);
 
+		// Atualiza o saldo ( valor * quantidade )
 		atualizarSaldo();
 	}
 
-	private void delQtdItem() {
-		if (quantidade > 1) {
+	private void delQtdItem(){
+		if(quantidade > 1){
 			quantidade--;
-			if (quantidade == 1) {
+
+			if(quantidade == 1){
 				btn_remover.setImageResource(R.drawable.ic_remove);
 			}
+
+			// Atualiza o saldo ( valor * quantidade )
 			atualizarSaldo();
+
 		}
 	}
 
@@ -125,7 +133,7 @@ public class EmpresaProdutoDetalheActivity extends AppCompatActivity {
 		text_total_produto.setText(getString(R.string.text_valor, GetMask.getValor(produto.getValor() * quantidade)));
 	}
 
-	private void recuperaEmpresa() {
+	private void recuperaEmpresa(){
 		DatabaseReference empresaRef = FirebaseHelper.getDatabaseReference()
 				.child("empresas")
 				.child(produto.getIdEmpresa());
@@ -145,29 +153,29 @@ public class EmpresaProdutoDetalheActivity extends AppCompatActivity {
 		});
 	}
 
-	private void configDados() {
+	private void configDados(){
 		Picasso.get().load(produto.getUrlImagem()).into(img_produto);
 		text_produto.setText(produto.getNome());
 		text_descricao.setText(produto.getDescricao());
 		text_valor.setText(getString(R.string.text_valor, GetMask.getValor(produto.getValor())));
 		text_total_produto.setText(getString(R.string.text_valor, GetMask.getValor(produto.getValor() * quantidade)));
 
-		if (produto.getValorAntigo() > 0) {
+		if(produto.getValorAntigo() > 0){
 			text_valor_antigo.setText(getString(R.string.text_valor, GetMask.getValor(produto.getValorAntigo())));
-		} else {
-			text_valor.setText("");
+		}else {
+			text_valor_antigo.setText("");
 		}
 
 	}
 
-	private void configCliques() {
+	private void configCliques(){
 		findViewById(R.id.ib_voltar).setOnClickListener(v -> finish());
+		findViewById(R.id.btn_adicionar).setOnClickListener(v -> addItemCarrinho());
 		btn_add.setOnClickListener(v -> addQtdItem());
 		btn_remover.setOnClickListener(v -> delQtdItem());
-		btn_adicionar.setOnClickListener(v -> addItemCarrinho());
 	}
 
-	private void iniciaComponentes() {
+	private void iniciaComponentes(){
 		TextView text_toolbar = findViewById(R.id.text_toolbar);
 		text_toolbar.setText("Detalhes");
 
@@ -190,8 +198,8 @@ public class EmpresaProdutoDetalheActivity extends AppCompatActivity {
 	protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 
-		if (resultCode == RESULT_OK){
-			if (requestCode == REQUEST_CARDAPIO){
+		if(resultCode == RESULT_OK){
+			if(requestCode == REQUEST_CARDAPIO){
 				finish();
 			}
 		}

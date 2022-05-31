@@ -8,7 +8,7 @@
     tools:context=".activities.usuario.CarrinhoActivity">
 
     <include
-        android:id="@+id/include15"
+        android:id="@+id/include16"
         layout="@layout/toolbar_carrinho"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,10 +18,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:fillViewport="true"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include15">
+        app:layout_constraintTop_toBottomOf="@+id/include16">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,22 +30,22 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:visibility="gone"
-                tools:visibility="visible"
                 android:id="@+id/ll_endereco"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:background="@color/white"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:background="@android:color/white"
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
+                    app:cardCornerRadius="10dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
-                    app:cardCornerRadius="10dp"
                     app:cardElevation="5dp">
 
                     <FrameLayout
@@ -56,66 +56,68 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/bg_map" />
+                            android:src="@drawable/bg_map"/>
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:src="@drawable/ic_local" />
+                            android:src="@drawable/ic_local"/>
+
                     </FrameLayout>
+
                 </androidx.cardview.widget.CardView>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
                     android:layout_marginStart="16dp"
                     android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Entregar em" />
+                        android:text="Entregar em"/>
 
                     <TextView
                         android:id="@+id/text_logradouro"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        tools:text="Av. Central, 800" />
+                        tools:text="Av. Central, 800"/>
 
                     <TextView
                         android:id="@+id/text_referencia"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="Próximo ao posto, ao lado da escola" />
+                        tools:text="Próximo ao posto, ao lado da escola."/>
+
                 </LinearLayout>
 
-                <androidx.constraintlayout.utils.widget.ImageFilterView
+                <ImageView
                     android:layout_width="14dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
+                    android:layout_height="14dp"
                     android:layout_marginEnd="16dp"
+                    android:layout_gravity="center_vertical"
                     android:src="@drawable/ic_seta_direita"
                     app:tint="@color/cor_principal" />
-
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
+                android:background="@android:color/white"
                 android:orientation="vertical">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_produtos"
-                    tools:listitem="@layout/adapter_carrinho"
-                    tools:itemCount="2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/adapter_carrinho"/>
 
                 <LinearLayout
                     android:id="@+id/ll_btn_add_mais"
@@ -124,65 +126,67 @@
                     android:orientation="vertical">
 
                     <include
-                        layout="@layout/divisor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp" />
+                        android:layout_marginEnd="16dp"
+                        layout="@layout/divisor"/>
 
                     <Button
                         android:id="@+id/btn_add_mais"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:background="@android:color/transparent"
-                        android:text="Adicionar mais"
                         android:textAllCaps="false"
+                        android:textSize="16sp"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp"
+                        android:background="@android:color/transparent"
                         android:textColor="@color/cor_principal"
-                        android:textSize="16sp" />
+                        android:text="Adicionar mais"/>
 
                     <include
-                        layout="@layout/divisor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp" />
+                        android:layout_marginEnd="16dp"
+                        layout="@layout/divisor"/>
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
+                    android:layout_marginTop="16dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Subttotal"
+                        android:text="Subtotal"
                         android:textColor="#A9A9A9"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
 
                     <TextView
                         android:id="@+id/text_subtotal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        tools:text="R$ 0,00"
                         android:textAlignment="textEnd"
                         android:textColor="#A9A9A9"
-                        android:textSize="16sp"
-                        tools:text="R$ 0,00" />
+                        android:textSize="16sp"/>
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
+                    android:layout_marginTop="8dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -191,17 +195,18 @@
                         android:layout_weight="1"
                         android:text="Taxa de entrega"
                         android:textColor="#A9A9A9"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
 
                     <TextView
                         android:id="@+id/text_taxa_entrega"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        tools:text="R$ 0,00"
                         android:textAlignment="textEnd"
                         android:textColor="#A9A9A9"
-                        android:textSize="16sp"
-                        tools:text="R$ 0,00" />
+                        android:textSize="16sp"/>
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -215,19 +220,21 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Total"
-                        android:textColor="@color/black"
-                        android:textSize="18sp" />
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"/>
 
                     <TextView
                         android:id="@+id/text_total"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        tools:text="R$ 0,00"
                         android:textAlignment="textEnd"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        tools:text="R$ 0,00" />
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"/>
+
                 </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout
@@ -235,17 +242,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:background="@color/white"
+                android:background="@android:color/white"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
-                    android:layout_marginStart="16dp"
-                    android:text="Peça mais"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:text="Peça mais"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_add_mais"
@@ -253,7 +259,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="24dp" />
+                    android:layout_marginBottom="24dp"/>
+
             </LinearLayout>
 
             <LinearLayout
@@ -261,45 +268,48 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:background="@color/white"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
                 android:paddingStart="16dp"
-                android:paddingEnd="0dp">
+                android:paddingEnd="0dp"
+                android:gravity="center_vertical"
+                android:background="@android:color/white"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_pagamento" />
+                    android:src="@drawable/ic_pagamento"/>
 
                 <TextView
                     android:id="@+id/text_forma_pagamento"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:text="Formas de pagamento" />
+                    android:text="Formas de pagamento"/>
 
                 <Button
                     android:id="@+id/text_escolher_pagamento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:paddingStart="0dp"
-                    android:paddingEnd="16dp"
-                    android:paddingTop="16sp"
-                    android:paddingBottom="16sp"
-                    android:text="Escolher"
-                    android:textSize="16sp"
                     android:textAlignment="textEnd"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:paddingStart="0dp"
                     android:textAllCaps="false"
+                    android:textSize="16sp"
                     android:textColor="@color/cor_principal"
-                    android:textStyle="bold" />
+                    android:background="@android:color/transparent"
+                    android:textStyle="bold"
+                    android:text="Escolher"/>
+
             </LinearLayout>
+
         </LinearLayout>
+
     </ScrollView>
 
     <LinearLayout
-        android:id="@+id/linearLayout5"
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -319,7 +329,9 @@
             android:backgroundTint="@color/cor_principal"
             android:text="Selecione o endereço"
             android:textAllCaps="false"
-            android:textColor="@color/white"
+            android:textColor="@android:color/white"
             android:textSize="16sp" />
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

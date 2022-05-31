@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.diegolima.ifoodclone.R;
-import com.diegolima.ifoodclone.activities.empresa.EmpresaProdutoDetalheActivity;
+import com.diegolima.ifoodclone.activities.empresa.EmpresaProdutoDetalhesActivity;
 import com.diegolima.ifoodclone.helper.GetMask;
 import com.diegolima.ifoodclone.model.Produto;
 import com.squareup.picasso.Picasso;
@@ -32,12 +32,13 @@ public class ProdutoCardapioAdapter extends RecyclerView.Adapter<ProdutoCardapio
 	@NonNull
 	@Override
 	public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-		View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_produto_cardapio, parent, false);
-		return new MyViewHolder(itemView);
+		View itemVIew = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_produto_cardapio, parent, false);
+		return new MyViewHolder(itemVIew);
 	}
 
 	@Override
 	public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+
 		Produto produto = produtoList.get(position);
 
 		Picasso.get().load(produto.getUrlImagem()).into(holder.imagemProduto);
@@ -45,10 +46,11 @@ public class ProdutoCardapioAdapter extends RecyclerView.Adapter<ProdutoCardapio
 		holder.textProdutoValor.setText(activity.getString(R.string.text_valor, GetMask.getValor(produto.getValor())));
 
 		holder.itemView.setOnClickListener(v -> {
-			Intent intent = new Intent(activity, EmpresaProdutoDetalheActivity.class);
+			Intent intent = new Intent(activity, EmpresaProdutoDetalhesActivity.class);
 			intent.putExtra("produtoSelecionado", produto);
 			activity.startActivity(intent);
 		});
+
 	}
 
 	@Override
@@ -56,10 +58,10 @@ public class ProdutoCardapioAdapter extends RecyclerView.Adapter<ProdutoCardapio
 		return produtoList.size();
 	}
 
-	static class MyViewHolder extends RecyclerView.ViewHolder {
+	static class MyViewHolder extends RecyclerView.ViewHolder{
 
 		ImageView imagemProduto;
-		TextView textProdutoNome,textProdutoValor;
+		TextView textProdutoNome, textProdutoValor;
 
 		public MyViewHolder(@NonNull View itemView) {
 			super(itemView);

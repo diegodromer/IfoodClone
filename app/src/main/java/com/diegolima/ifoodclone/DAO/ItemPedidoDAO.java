@@ -121,4 +121,5 @@ public class ItemPedidoDAO {
 			Log.i("INFO_DB", "onCreate: Erro ao limpar o carrinho.");
 		}
 	}
+
 }

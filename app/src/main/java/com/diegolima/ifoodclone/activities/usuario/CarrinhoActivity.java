@@ -77,6 +77,7 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
 
 	private Button btn_continuar;
 	private Button text_escolher_pagamento;
+
 	private BottomSheetDialog bottomSheetDialog;
 
 	private int quantidade = 0;
@@ -102,17 +103,25 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
 		entregaDAO = new EntregaDAO(getBaseContext());
 
 		iniciaComponentes();
+
 		configCliques();
+
 		configRv();
-		recuperaItensAddMais();
-		recuperaEndereco();
+
+		recuperaIdsItensAddMais();
+
+		recuperaEnderecos();
+
 		configSaldoCarrinho();
+
 		configPagamento();
+
 	}
 
-	private void showBottomSheet() {
+
+	private void showBottomSheet(){
 		View view = getLayoutInflater().inflate(R.layout.bottom_sheet_item_carrinho, null);
-		bottomSheetDialog = new BottomSheetDialog(this, R.style.bottomSheetDialog);
+		bottomSheetDialog = new BottomSheetDialog(this, R.style.BottomSheetDialog);
 		bottomSheetDialog.setContentView(view);
 		bottomSheetDialog.show();
 
@@ -137,40 +146,46 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
 		text_nome_produto.setText(produto.getNome());
 		text_total_produto_dialog.setText(getString(R.string.text_valor,
 				GetMask.getValor(produto.getValor() * itemPedido.getQuantidade())));
-
 		quantidade = itemPedido.getQuantidade();
+
+
 	}
 
-	private void configValorDialog() {
+	private void configValoresDialog(){
 		text_qtd_produto.setText(String.valueOf(quantidade));
 		text_total_produto_dialog.setText(getString(R.string.text_valor,
 				GetMask.getValor(produto.getValor() * quantidade)));
 	}
 
-	private void addQtdItem() {
+	private void addQtdItem(){
 		quantidade++;
-		if (quantidade == 1) {
+		if(quantidade == 1){
 			ib_remove.setImageResource(R.drawable.ic_remove_red);
 			text_total_produto_dialog.setVisibility(View.VISIBLE);
 			text_atualizar.setText("Atualizar");
 		}
+
 		text_atualizar.setOnClickListener(v -> {
 			atualizarItem();
 		});
 
-		configValorDialog();
+		configValoresDialog();
+
 	}
 
-	private void delQtdItem() {
-		if (quantidade > 0) {
+	private void delQtdItem(){
+		if(quantidade > 0){
 			quantidade--;
-			if (quantidade == 0) { //remover do carrinho
+
+			if(quantidade == 0){ // Remover do carrinho
+
 				ib_remove.setImageResource(R.drawable.ic_remove);
 				text_total_produto_dialog.setVisibility(View.GONE);
 				text_atualizar.setText("Remover");
 				text_atualizar.setGravity(Gravity.CENTER);
 
 				text_atualizar.setOnClickListener(v -> {
+
 					itemPedidoDAO.remover(itemPedido.getId());
 					itemPedidoList.remove(itemPedido);
 
@@ -182,25 +197,30 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
 
 					carrinhoAdapter.notifyDataSetChanged();
 					bottomSheetDialog.dismiss();
+
 				});
-			} else {
+
+			}else {
 				text_atualizar.setOnClickListener(v -> {
 					atualizarItem();
 				});
 			}
+
 		}
-		configValorDialog();
+
+		configValoresDialog();
+
 	}
 
-	private void configBtnAddMais() {
-		if (itemPedidoList.isEmpty()){
+	private void configBtnAddMais(){
+		if(itemPedidoList.isEmpty()){
 			ll_btn_add_mais.setVisibility(View.GONE);
 		}else {
 			ll_btn_add_mais.setVisibility(View.VISIBLE);
 		}
 	}
 
-	private void atualizarItem() {
+	private void atualizarItem(){
 		itemPedido.setQuantidade(quantidade);
 		itemPedidoDAO.atualizar(itemPedido);
 		carrinhoAdapter.notifyDataSetChanged();
@@ -209,31 +229,32 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
 		bottomSheetDialog.dismiss();
 	}
 
-	private void configSaldoCarrinho() {
-		double subtotal = 0;
+	private void configSaldoCarrinho(){
+		double subTotal = 0;
 		double taxaEntrega = 0;
 		double total = 0;
 
-		if (!itemPedidoDAO.getList().isEmpty()) {
-			subtotal = itemPedidoDAO.getTotal();
+		if(!itemPedidoDAO.getList().isEmpty()){
+			subTotal = itemPedidoDAO.getTotal();
 			taxaEntrega = empresaDAO.getEmpresa().getTaxaEntrega();
-			total = subtotal + taxaEntrega;
+			total = subTotal + taxaEntrega;
 		}
 
-		text_subtotal.setText(getString(R.string.text_valor, GetMask.getValor(subtotal)));
+		text_subtotal.setText(getString(R.string.text_valor, GetMask.getValor(subTotal)));
 		text_taxa_entrega.setText(getString(R.string.text_valor, GetMask.getValor(taxaEntrega)));
 		text_total.setText(getString(R.string.text_valor, GetMask.getValor(total)));
+
 	}
 
-	private void recuperaEndereco() {
-		if (FirebaseHelper.getAutenticado() && entregaDAO.getEndereco() == null) {
-			DatabaseReference enderecosRef = FirebaseHelper.getDatabaseReference()
+	private void recuperaEnderecos(){
+		if(FirebaseHelper.getAutenticado() && entregaDAO.getEndereco() == null){
+			DatabaseReference enderecoRef = FirebaseHelper.getDatabaseReference()
 					.child("enderecos")
 					.child(FirebaseHelper.getIdFirebase());
-			enderecosRef.addListenerForSingleValueEvent(new ValueEventListener() {
+			enderecoRef.addListenerForSingleValueEvent(new ValueEventListener() {
 				@Override
 				public void onDataChange(@NonNull DataSnapshot snapshot) {
-					if (snapshot.exists()) {
+					if(snapshot.exists()){
 						for (DataSnapshot ds : snapshot.getChildren()) {
 							endereco = ds.getValue(Endereco.class);
 						}
@@ -246,73 +267,76 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
 
 				@Override
 				public void onCancelled(@NonNull DatabaseError error) {
+
 				}
 			});
-		} else {
+		}else {
 			configEndereco();
 		}
 	}
 
-	private void configEndereco() {
+	private void configEndereco(){
 		endereco = entregaDAO.getEndereco();
-		if (endereco != null) {
+		if(endereco != null){
 			text_logradouro.setText(endereco.getLogradouro());
 			text_referencia.setText(endereco.getReferencia());
 			ll_endereco.setVisibility(View.VISIBLE);
 		}
+
 		configStatus();
 	}
 
-	private void configPagamento() {
+	private void configPagamento(){
 		pagamento = entregaDAO.getEntrega().getFormaPagamento();
-		if (pagamento != null && !pagamento.isEmpty()){
+		if(pagamento != null && !pagamento.isEmpty()){
 			text_forma_pagamento.setText(pagamento);
 			configStatus();
 		}
 	}
 
-	private void configStatus() {
-		if (endereco == null) {
+	private void configStatus(){
+		if(endereco == null){
 			btn_continuar.setText("Selecione o endereço");
-		} else {
-			if (pagamento == null) {
+		}else {
+			if(pagamento == null){
 				btn_continuar.setText("Selecione a forma de pagamento");
-			} else {
+			}else {
 				btn_continuar.setText("Continuar");
 				text_escolher_pagamento.setText("Trocar");
 			}
 		}
 	}
 
-	private void configLayoutAddMais() {
-		if (produtoList.isEmpty()){
+	private void configLayoutAddMais(){
+		if(produtoList.isEmpty()){
 			ll_add_mais.setVisibility(View.GONE);
-		}else{
+		}else {
 			ll_add_mais.setVisibility(View.VISIBLE);
-
 		}
 	}
 
-	private void addMaisList() {
+	private void addMaisList(){
 		boolean contem = false;
-		if (produtoList.size() == 0){
+		if(produtoList.size() == 0){
 			produtoList.add(produto);
 		}else {
 			for (Produto prod : produtoList){
-				if (prod.getId().equals(produto.getId())){
+				if(prod.getId().equals(produto.getId())){
 					contem = true;
 					break;
 				}
 			}
 
-			if (!contem){
+			if(!contem){
 				produtoList.add(produto);
 			}
+
 		}
 
 		configLayoutAddMais();
 
 		produtoCarrinhoAdapter.notifyDataSetChanged();
+
 	}
 
 	private void configCliques() {
@@ -339,40 +363,45 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
 			Intent intent = new Intent(this, UsuarioSelecionaPagamentoActivity.class);
 			startActivityForResult(intent, REQUEST_PAGAMENTO);
 		});
+
 	}
 
-	private void continuar() {
-		if (FirebaseHelper.getAutenticado()) {
-			if (endereco == null) {
+	private void continuar(){
+		if(FirebaseHelper.getAutenticado()){
+			if(endereco == null){
 				Intent intent = new Intent(this, UsuarioSelecionaEnderecoActivity.class);
 				startActivityForResult(intent, REQUEST_ENDERECO);
-			} else {
-				if (pagamento == null) {
+			}else {
+				if(pagamento == null){
 					Intent intent = new Intent(this, UsuarioSelecionaPagamentoActivity.class);
 					startActivityForResult(intent, REQUEST_PAGAMENTO);
+				}else {
+					startActivity(new Intent(this, UsuarioResumoPedidoActivity.class));
 				}
 			}
-		} else {
+		}else {
 			Intent intent = new Intent(this, LoginActivity.class);
 			startActivityForResult(intent, REQUEST_LOGIN);
 		}
 	}
 
-	private void recuperaItensAddMais() {
+	private void recuperaIdsItensAddMais(){
 		DatabaseReference addMaisRef = FirebaseHelper.getDatabaseReference()
 				.child("addMais")
 				.child(empresaDAO.getEmpresa().getId());
 		addMaisRef.addListenerForSingleValueEvent(new ValueEventListener() {
 			@Override
 			public void onDataChange(@NonNull DataSnapshot snapshot) {
-				if (snapshot.exists()) {
+				if(snapshot.exists()){
 					List<String> idsItensList = new ArrayList<>();
-					for (DataSnapshot ds : snapshot.getChildren()) {
+					for (DataSnapshot ds : snapshot.getChildren()){
 						String idProduto = ds.getValue(String.class);
 						idsItensList.add(idProduto);
 					}
+
 					recuperaProdutos(idsItensList);
-				} else {
+
+				}else {
 					configLayoutAddMais();
 				}
 			}
@@ -391,14 +420,14 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
 		produtosRef.addListenerForSingleValueEvent(new ValueEventListener() {
 			@Override
 			public void onDataChange(@NonNull DataSnapshot snapshot) {
-				for (DataSnapshot ds : snapshot.getChildren()) {
+				for (DataSnapshot ds : snapshot.getChildren()){
 					Produto produto = ds.getValue(Produto.class);
-					if (idsItensList.contains(produto.getId())) {
-						produtoList.add(produto);
-					}
+					if(idsItensList.contains(produto.getId())) produtoList.add(produto);
 				}
+
 				Collections.reverse(produtoList);
 				produtoCarrinhoAdapter.notifyDataSetChanged();
+
 			}
 
 			@Override
@@ -408,7 +437,7 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
 		});
 	}
 
-	private void configRv() {
+	private void configRv(){
 		rv_produtos.setLayoutManager(new LinearLayoutManager(this));
 		rv_produtos.setHasFixedSize(true);
 		carrinhoAdapter = new CarrinhoAdapter(itemPedidoList, getBaseContext(), this);
@@ -420,7 +449,7 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
 		rv_add_mais.setAdapter(produtoCarrinhoAdapter);
 	}
 
-	private void iniciaComponentes() {
+	private void iniciaComponentes(){
 		TextView text_toolbar = findViewById(R.id.text_toolbar);
 		text_toolbar.setText("Sacola");
 
@@ -440,11 +469,10 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
 		ll_endereco = findViewById(R.id.ll_endereco);
 		text_logradouro = findViewById(R.id.text_logradouro);
 		text_referencia = findViewById(R.id.text_referencia);
-
 	}
 
 	@Override
-	public void OnClick(ItemPedido itemPedido) { //RV Principal
+	public void OnClick(ItemPedido itemPedido) { // RV principal
 		this.itemPedido = itemPedido;
 		showBottomSheet();
 	}
@@ -478,15 +506,15 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
 	protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 
-		if (resultCode == RESULT_OK) {
-			if (requestCode == REQUEST_LOGIN) {
+		if(resultCode == RESULT_OK){
+			if(requestCode == REQUEST_LOGIN){
 				Intent intent = new Intent(this, UsuarioSelecionaEnderecoActivity.class);
 				startActivityForResult(intent, REQUEST_ENDERECO);
-			} else if (requestCode == REQUEST_ENDERECO) {
+			}else if(requestCode == REQUEST_ENDERECO){
 				endereco = (Endereco) data.getSerializableExtra("enderecoSelecionado");
-				if (entregaDAO.getEndereco() == null) {
+				if(entregaDAO.getEndereco() == null){
 					entregaDAO.salvarEndereco(endereco);
-				} else {
+				}else {
 					entregaDAO.atualizarEndereco(endereco);
 				}
 				configEndereco();

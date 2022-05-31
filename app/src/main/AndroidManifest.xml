@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IfoodClone">
         <activity
-            android:name=".UsuarioResumoPedidoActivity"
+            android:name=".activities.usuario.UsuarioResumoPedidoActivity"
             android:exported="false" />
         <activity
             android:name=".activities.usuario.UsuarioSelecionaPagamentoActivity"
@@ -24,7 +24,7 @@
             android:name=".activities.usuario.CarrinhoActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.empresa.EmpresaProdutoDetalheActivity"
+            android:name=".activities.empresa.EmpresaProdutoDetalhesActivity"
             android:exported="false" />
         <activity
             android:name=".activities.empresa.EmpresaCardapioActivity"
