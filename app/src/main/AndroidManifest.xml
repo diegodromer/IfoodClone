@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IfoodClone">
         <activity
+            android:name=".PedidoDetalheActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.usuario.UsuarioResumoPedidoActivity"
             android:exported="false" />
         <activity

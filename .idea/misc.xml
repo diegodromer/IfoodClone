@@ -62,6 +62,7 @@
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/adapter_cardapio.xml" value="0.181140350877193" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/adapter_carrinho.xml" value="0.5" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/adapter_pedido_empresa.xml" value="0.33" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/adapter_pedido_usuario.xml" value="0.30833333333333335" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/adapter_produto_cardapio.xml" value="0.181140350877193" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/add_mais_item.xml" value="0.33" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/bottom_sheet_item_carrinho.xml" value="0.17017543859649123" />
@@ -79,6 +80,8 @@
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/fragment_usuario.xml" value="0.13196555217831812" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/fragment_usuario_home.xml" value="0.15092592592592594" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/fragment_usuario_pedido.xml" value="0.30833333333333335" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/fragment_usuario_pedido_andamento.xml" value="0.30833333333333335" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/fragment_usuario_pedido_finalizado.xml" value="0.30833333333333335" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/fragment_usuario_perfil.xml" value="0.22" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/fragment_usuario_pesquisa.xml" value="0.16842105263157894" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/layout_ver_sacola.xml" value="0.22" />

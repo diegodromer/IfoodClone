@@ -33,7 +33,7 @@ import java.util.List;
 
 public class EmpresaPedidoAndamentoFragment extends Fragment implements EmpresaPedidoAdapter.OnClickListener {
 
-	private List<Pedido> pedidoList = new ArrayList<>();
+	private final List<Pedido> pedidoList = new ArrayList<>();
 	private EmpresaPedidoAdapter empresaPedidoAdapter;
 
 	private RecyclerView rv_pedidos;
