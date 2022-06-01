@@ -15,7 +15,6 @@ import com.diegolima.ifoodclone.DAO.EntregaDAO;
 import com.diegolima.ifoodclone.DAO.ItemPedidoDAO;
 import com.diegolima.ifoodclone.R;
 import com.diegolima.ifoodclone.activities.adapter.CarrinhoAdapter;
-import com.diegolima.ifoodclone.activities.adapter.ProdutoCarrinhoAdapter;
 import com.diegolima.ifoodclone.helper.FirebaseHelper;
 import com.diegolima.ifoodclone.helper.GetMask;
 import com.diegolima.ifoodclone.model.Endereco;

@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.diegolima.ifoodclone.R;
 import com.diegolima.ifoodclone.helper.GetMask;
 import com.diegolima.ifoodclone.model.Empresa;
-import com.google.android.material.transition.Hold;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

@@ -26,8 +26,6 @@ import android.widget.Toast;
 import com.blackcat.currencyedittext.CurrencyEditText;
 import com.diegolima.ifoodclone.R;
 import com.diegolima.ifoodclone.activities.empresa.EmpresaCategoriasActivity;
-import com.diegolima.ifoodclone.activities.empresa.EmpresaFinalizaCadastroActivity;
-import com.diegolima.ifoodclone.activities.empresa.EmpresaHomeActivity;
 import com.diegolima.ifoodclone.helper.FirebaseHelper;
 import com.diegolima.ifoodclone.model.Categoria;
 import com.diegolima.ifoodclone.model.Produto;
@@ -43,7 +41,6 @@ import com.gun0912.tedpermission.normal.TedPermission;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
-import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 

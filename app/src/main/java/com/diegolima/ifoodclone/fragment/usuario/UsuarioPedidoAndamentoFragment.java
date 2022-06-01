@@ -1,5 +1,6 @@
 package com.diegolima.ifoodclone.fragment.usuario;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import com.diegolima.ifoodclone.R;
 import com.diegolima.ifoodclone.activities.adapter.UsuarioPedidoAdapter;
+import com.diegolima.ifoodclone.activities.usuario.PedidoDetalheActivity;
 import com.diegolima.ifoodclone.helper.FirebaseHelper;
 import com.diegolima.ifoodclone.model.Pedido;
 import com.diegolima.ifoodclone.model.StatusPedido;
@@ -109,7 +111,10 @@ public class UsuarioPedidoAndamentoFragment extends Fragment implements UsuarioP
 		if(rota == 0){
 			Toast.makeText(getContext(), "Ajuda.", Toast.LENGTH_SHORT).show();
 		}else if(rota == 1){
-			Toast.makeText(getContext(), "Detalhes Pedido.", Toast.LENGTH_SHORT).show();
+			Intent intent = new Intent(getActivity(), PedidoDetalheActivity.class);
+			intent.putExtra("pedidoSelecionado", pedido);
+			intent.putExtra("acesso", "usuario");
+			startActivity(intent);
 		}
 	}
 }

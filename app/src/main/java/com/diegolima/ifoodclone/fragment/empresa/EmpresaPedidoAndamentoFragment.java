@@ -1,9 +1,9 @@
 package com.diegolima.ifoodclone.fragment.empresa;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,15 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.diegolima.ifoodclone.R;
 import com.diegolima.ifoodclone.activities.adapter.EmpresaPedidoAdapter;
+import com.diegolima.ifoodclone.activities.usuario.PedidoDetalheActivity;
 import com.diegolima.ifoodclone.helper.FirebaseHelper;
 import com.diegolima.ifoodclone.model.Pedido;
 import com.diegolima.ifoodclone.model.StatusPedido;
@@ -113,7 +111,10 @@ public class EmpresaPedidoAndamentoFragment extends Fragment implements EmpresaP
 		if(rota == 0){
 			Toast.makeText(getContext(), "Status.", Toast.LENGTH_SHORT).show();
 		}else if(rota == 1){
-			Toast.makeText(getContext(), "Detalhes Pedido.", Toast.LENGTH_SHORT).show();
+			Intent intent = new Intent(getActivity(), PedidoDetalheActivity.class);
+			intent.putExtra("pedidoSelecionado", pedido);
+			intent.putExtra("acesso", "empresa");
+			startActivity(intent);
 		}
 	}
 }

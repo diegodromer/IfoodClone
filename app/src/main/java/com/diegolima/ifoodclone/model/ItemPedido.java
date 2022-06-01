@@ -2,7 +2,9 @@ package com.diegolima.ifoodclone.model;
 
 import com.google.firebase.database.Exclude;
 
-public class ItemPedido {
+import java.io.Serializable;
+
+public class ItemPedido implements Serializable {
 	private Long id;
 	private String idItem;
 	private String item;

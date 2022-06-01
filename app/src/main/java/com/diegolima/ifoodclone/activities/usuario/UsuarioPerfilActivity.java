@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.diegolima.ifoodclone.R;
 import com.diegolima.ifoodclone.helper.FirebaseHelper;
@@ -19,8 +18,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.santalu.maskara.widget.MaskEditText;
-
-import java.util.Locale;
 
 public class UsuarioPerfilActivity extends AppCompatActivity {
 

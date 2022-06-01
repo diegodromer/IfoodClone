@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.diegolima.ifoodclone.R;
 import com.diegolima.ifoodclone.activities.adapter.CategoriaAdapter;

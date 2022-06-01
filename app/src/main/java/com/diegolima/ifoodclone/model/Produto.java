@@ -1,7 +1,5 @@
 package com.diegolima.ifoodclone.model;
 
-import android.provider.ContactsContract;
-
 import com.diegolima.ifoodclone.helper.FirebaseHelper;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;

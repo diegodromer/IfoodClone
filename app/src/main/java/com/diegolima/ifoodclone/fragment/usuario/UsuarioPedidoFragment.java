@@ -11,8 +11,6 @@ import android.view.ViewGroup;
 
 import com.diegolima.ifoodclone.R;
 import com.diegolima.ifoodclone.activities.adapter.ViewPagerAdapter;
-import com.diegolima.ifoodclone.fragment.empresa.EmpresaPedidoAndamentoFragment;
-import com.diegolima.ifoodclone.fragment.empresa.EmpresaPedidoFinalizadoFragment;
 import com.google.android.material.tabs.TabLayout;
 
 public class UsuarioPedidoFragment extends Fragment {

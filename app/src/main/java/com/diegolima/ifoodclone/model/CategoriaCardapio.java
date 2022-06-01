@@ -1,6 +1,5 @@
 package com.diegolima.ifoodclone.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CategoriaCardapio {

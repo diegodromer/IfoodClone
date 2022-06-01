@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.diegolima.ifoodclone.R;
-import com.diegolima.ifoodclone.model.Categoria;
 import com.diegolima.ifoodclone.model.Endereco;
 
 import java.util.List;

@@ -1,6 +1,8 @@
 package com.diegolima.ifoodclone.model;
 
-public enum StatusPedido {
+import java.io.Serializable;
+
+public enum StatusPedido implements Serializable{
 	ENTREGUE, PENDENTE, PREPARACAO, SAIU_ENTREGA, CANCELADO_EMPRESA, CANCELADO_USUARIO;
 
 	public static String getStatus(StatusPedido statusPedido){

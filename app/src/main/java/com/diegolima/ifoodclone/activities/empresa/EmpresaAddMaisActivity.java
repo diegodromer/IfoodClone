@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.diegolima.ifoodclone.R;
 import com.diegolima.ifoodclone.activities.adapter.AddMaisAdapter;
-import com.diegolima.ifoodclone.activities.adapter.ProdutoAdapterEmpresa;
 import com.diegolima.ifoodclone.fragment.empresa.AddMais;
 import com.diegolima.ifoodclone.helper.FirebaseHelper;
 import com.diegolima.ifoodclone.model.Produto;
@@ -20,7 +19,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
-import com.tsuryo.swipeablerv.SwipeLeftRightCallback;
 
 import java.util.ArrayList;
 import java.util.Collections;

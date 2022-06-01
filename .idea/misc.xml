@@ -16,6 +16,7 @@
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/ic_add_red.xml" value="0.1" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/ic_add_white.xml" value="0.136" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/ic_ajuda.xml" value="0.1155" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/ic_check_cancelado.xml" value="0.125" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/ic_config_off.xml" value="0.111" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/ic_email.xml" value="0.1645" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/drawable/ic_email_red.xml" value="0.186" />
@@ -47,6 +48,7 @@
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_empresa_recebimentos.xml" value="0.25" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_main.xml" value="0.1859375" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_pedido_detalhe.xml" value="0.12" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_recuperar_conta.xml" value="0.2713541666666667" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_splash.xml" value="0.36354166666666665" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_usuario_enderecos.xml" value="0.17456140350877192" />
@@ -55,12 +57,13 @@
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_usuario_form_endereco.xml" value="0.25" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_usuario_home.xml" value="0.32587719298245615" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_usuario_perfil.xml" value="0.22" />
-        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_usuario_resumo_pedido.xml" value="0.25" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_usuario_resumo_pedido.xml" value="0.30833333333333335" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_usuario_seleciona_endereco.xml" value="0.25" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/activity_usuario_seleciona_pagamento.xml" value="0.22" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/adapter_add_tambem.xml" value="0.1899122807017544" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/adapter_cardapio.xml" value="0.181140350877193" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/adapter_carrinho.xml" value="0.5" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/adapter_item_detalhe_pedido.xml" value="0.24172661870503598" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/adapter_pedido_empresa.xml" value="0.33" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/adapter_pedido_usuario.xml" value="0.30833333333333335" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/adapter_produto_cardapio.xml" value="0.181140350877193" />
@@ -84,6 +87,7 @@
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/fragment_usuario_pedido_finalizado.xml" value="0.30833333333333335" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/fragment_usuario_perfil.xml" value="0.22" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/fragment_usuario_pesquisa.xml" value="0.16842105263157894" />
+        <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/layout_status_pedido.xml" value="0.18596491228070175" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/layout_ver_sacola.xml" value="0.22" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/pagamento_select.xml" value="0.22" />
         <entry key="..\:/Users/diego/AndroidStudioProjects/IfoodClone/app/src/main/res/layout/produto_item.xml" value="0.22" />

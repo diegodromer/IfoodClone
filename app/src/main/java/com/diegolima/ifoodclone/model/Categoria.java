@@ -4,7 +4,6 @@ import com.diegolima.ifoodclone.helper.FirebaseHelper;
 import com.google.firebase.database.DatabaseReference;
 
 import java.io.Serializable;
-import java.util.Locale;
 
 public class Categoria implements Serializable {
 	private String id;

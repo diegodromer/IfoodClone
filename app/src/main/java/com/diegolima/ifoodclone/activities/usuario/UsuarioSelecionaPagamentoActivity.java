@@ -13,11 +13,8 @@ import android.widget.TextView;
 
 import com.diegolima.ifoodclone.DAO.EmpresaDAO;
 import com.diegolima.ifoodclone.R;
-import com.diegolima.ifoodclone.activities.adapter.SelecionaEnderecoAdapter;
 import com.diegolima.ifoodclone.activities.adapter.SelecionaPagamentoAdapter;
 import com.diegolima.ifoodclone.helper.FirebaseHelper;
-import com.diegolima.ifoodclone.model.Empresa;
-import com.diegolima.ifoodclone.model.Endereco;
 import com.diegolima.ifoodclone.model.Pagamento;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,7 +22,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class UsuarioSelecionaPagamentoActivity extends AppCompatActivity implements SelecionaPagamentoAdapter.OnClickListener {

@@ -17,7 +17,6 @@ import com.diegolima.ifoodclone.R;
 import com.diegolima.ifoodclone.activities.empresa.EmpresaHomeActivity;
 import com.diegolima.ifoodclone.activities.empresa.EmpresaFinalizaCadastroActivity;
 import com.diegolima.ifoodclone.activities.usuario.UsuarioFinalizaCadastroActivity;
-import com.diegolima.ifoodclone.activities.usuario.UsuarioHomeActivity;
 import com.diegolima.ifoodclone.helper.FirebaseHelper;
 import com.diegolima.ifoodclone.model.Empresa;
 import com.diegolima.ifoodclone.model.Login;
