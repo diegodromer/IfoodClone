@@ -44,35 +44,35 @@
                 android:id="@+id/rb_pendente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/colorPrimary"
+                android:buttonTint="@color/cor_principal"
                 android:text="Pendente"/>
 
             <RadioButton
                 android:id="@+id/rb_preparacao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/colorPrimary"
+                android:buttonTint="@color/cor_principal"
                 android:text="Em preparação"/>
 
             <RadioButton
                 android:id="@+id/rb_saiu_entrega"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/colorPrimary"
+                android:buttonTint="@color/cor_principal"
                 android:text="Saiu para entrega"/>
 
             <RadioButton
                 android:id="@+id/rb_entregue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/colorPrimary"
+                android:buttonTint="@color/cor_principal"
                 android:text="Entregue"/>
 
             <RadioButton
                 android:id="@+id/rb_cancelado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/colorPrimary"
+                android:buttonTint="@color/cor_principal"
                 android:text="Cancelado"/>
 
         </RadioGroup>

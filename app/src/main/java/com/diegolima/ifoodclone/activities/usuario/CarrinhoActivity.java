@@ -255,11 +255,10 @@ public class CarrinhoActivity extends AppCompatActivity implements CarrinhoAdapt
 						for (DataSnapshot ds : snapshot.getChildren()) {
 							endereco = ds.getValue(Endereco.class);
 						}
+						entregaDAO.salvarEndereco(endereco);
+
+						configEndereco();
 					}
-
-					entregaDAO.salvarEndereco(endereco);
-
-					configEndereco();
 				}
 
 				@Override

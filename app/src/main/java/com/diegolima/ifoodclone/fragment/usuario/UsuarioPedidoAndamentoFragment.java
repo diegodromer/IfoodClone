@@ -27,6 +27,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class UsuarioPedidoAndamentoFragment extends Fragment implements UsuarioPedidoAdapter.OnClickListener {
@@ -74,6 +75,7 @@ public class UsuarioPedidoAndamentoFragment extends Fragment implements UsuarioP
 				}
 
 				progressBar.setVisibility(View.GONE);
+				Collections.reverse(pedidoList);
 				usuarioPedidoAdapter.notifyDataSetChanged();
 
 			}
@@ -87,8 +89,8 @@ public class UsuarioPedidoAndamentoFragment extends Fragment implements UsuarioP
 
 	private void addPedidoList(Pedido pedido){
 		if(pedido.getStatusPedido() != StatusPedido.CANCELADO_EMPRESA
-				|| pedido.getStatusPedido() != StatusPedido.CANCELADO_USUARIO
-				|| pedido.getStatusPedido() != StatusPedido.ENTREGUE){
+				&& pedido.getStatusPedido() != StatusPedido.CANCELADO_USUARIO
+				&& pedido.getStatusPedido() != StatusPedido.ENTREGUE){
 			pedidoList.add(pedido);
 		}
 	}

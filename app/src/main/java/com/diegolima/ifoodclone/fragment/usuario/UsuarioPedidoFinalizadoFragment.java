@@ -1,66 +1,123 @@
 package com.diegolima.ifoodclone.fragment.usuario;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.diegolima.ifoodclone.R;
+import com.diegolima.ifoodclone.activities.adapter.UsuarioPedidoAdapter;
+import com.diegolima.ifoodclone.activities.usuario.PedidoDetalheActivity;
+import com.diegolima.ifoodclone.helper.FirebaseHelper;
+import com.diegolima.ifoodclone.model.Pedido;
+import com.diegolima.ifoodclone.model.StatusPedido;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link UsuarioPedidoFinalizadoFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class UsuarioPedidoFinalizadoFragment extends Fragment {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-	// TODO: Rename parameter arguments, choose names that match
-	// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-	private static final String ARG_PARAM1 = "param1";
-	private static final String ARG_PARAM2 = "param2";
+public class UsuarioPedidoFinalizadoFragment extends Fragment implements UsuarioPedidoAdapter.OnClickListener {
 
-	// TODO: Rename and change types of parameters
-	private String mParam1;
-	private String mParam2;
+	private final List<Pedido> pedidoList = new ArrayList<>();
+	private UsuarioPedidoAdapter usuarioPedidoAdapter;
 
-	public UsuarioPedidoFinalizadoFragment() {
-		// Required empty public constructor
-	}
-
-	/**
-	 * Use this factory method to create a new instance of
-	 * this fragment using the provided parameters.
-	 *
-	 * @param param1 Parameter 1.
-	 * @param param2 Parameter 2.
-	 * @return A new instance of fragment UsuarioPedidoFinalizadoFragment.
-	 */
-	// TODO: Rename and change types and number of parameters
-	public static UsuarioPedidoFinalizadoFragment newInstance(String param1, String param2) {
-		UsuarioPedidoFinalizadoFragment fragment = new UsuarioPedidoFinalizadoFragment();
-		Bundle args = new Bundle();
-		args.putString(ARG_PARAM1, param1);
-		args.putString(ARG_PARAM2, param2);
-		fragment.setArguments(args);
-		return fragment;
-	}
-
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		if (getArguments() != null) {
-			mParam1 = getArguments().getString(ARG_PARAM1);
-			mParam2 = getArguments().getString(ARG_PARAM2);
-		}
-	}
+	private RecyclerView rv_pedidos;
+	private ProgressBar progressBar;
+	private TextView text_info;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
-		return inflater.inflate(R.layout.fragment_usuario_pedido_finalizado, container, false);
+		View view = inflater.inflate(R.layout.fragment_usuario_pedido_finalizado, container, false);
+
+		iniciaComponentes(view);
+
+		configRv();
+
+		recuperaPedidos();
+
+		return view;
+
+	}
+
+	private void recuperaPedidos(){
+		DatabaseReference pedidoRef = FirebaseHelper.getDatabaseReference()
+				.child("usuarioPedidos")
+				.child(FirebaseHelper.getIdFirebase());
+		pedidoRef.addValueEventListener(new ValueEventListener() {
+			@Override
+			public void onDataChange(@NonNull DataSnapshot snapshot) {
+				if(snapshot.exists()){
+					pedidoList.clear();
+					for(DataSnapshot ds : snapshot.getChildren()){
+						Pedido pedido = ds.getValue(Pedido.class);
+						if(pedido != null){
+							addPedidoList(pedido);
+						}
+					}
+					text_info.setText("");
+				}else {
+					text_info.setText("Nenhum pedido efetuado.");
+				}
+
+				progressBar.setVisibility(View.GONE);
+				Collections.reverse(pedidoList);
+				usuarioPedidoAdapter.notifyDataSetChanged();
+
+			}
+
+			@Override
+			public void onCancelled(@NonNull DatabaseError error) {
+
+			}
+		});
+	}
+
+	private void addPedidoList(Pedido pedido){
+		if(pedido.getStatusPedido() == StatusPedido.CANCELADO_EMPRESA
+				|| pedido.getStatusPedido() == StatusPedido.CANCELADO_USUARIO
+				|| pedido.getStatusPedido() == StatusPedido.ENTREGUE){
+			pedidoList.add(pedido);
+		}
+	}
+
+	private void configRv(){
+		rv_pedidos.setLayoutManager(new LinearLayoutManager(getActivity()));
+		rv_pedidos.setHasFixedSize(true);
+		usuarioPedidoAdapter = new UsuarioPedidoAdapter(pedidoList, getContext(), this);
+		rv_pedidos.setAdapter(usuarioPedidoAdapter);
+	}
+
+	private void iniciaComponentes(View view){
+		rv_pedidos = view.findViewById(R.id.rv_pedidos);
+		progressBar = view.findViewById(R.id.progressBar);
+		text_info = view.findViewById(R.id.text_info);
+	}
+
+	@Override
+	public void OnClick(Pedido pedido, int rota) {
+		if(rota == 0){
+			Toast.makeText(getContext(), "Ajuda.", Toast.LENGTH_SHORT).show();
+		}else if(rota == 1){
+			Intent intent = new Intent(getActivity(), PedidoDetalheActivity.class);
+			intent.putExtra("pedidoSelecionado", pedido);
+			intent.putExtra("acesso", "usuario");
+			startActivity(intent);
+		}
 	}
 }

@@ -51,7 +51,7 @@ public class Pedido implements Serializable {
 
 		DatabaseReference usuarioRef = FirebaseHelper.getDatabaseReference()
 				.child("usuarioPedidos")
-				.child(FirebaseHelper.getIdFirebase())
+				.child(getIdCliente())
 				.child(getId());
 		usuarioRef.setValue(this);
 
@@ -59,10 +59,45 @@ public class Pedido implements Serializable {
 				.child("dataPedido");
 		dataPedidousuarioRef.setValue(ServerValue.TIMESTAMP);
 
-		DatabaseReference dataStatusPedidoUsuarioRef = empresaRef
+		DatabaseReference dataStatusPedidoUsuarioRef = usuarioRef
 				.child("dataStatusPedido");
 		dataStatusPedidoUsuarioRef.setValue(ServerValue.TIMESTAMP);
 
+	}
+
+	public void atualizar(){
+
+		DatabaseReference empresaStatusPedido = FirebaseHelper.getDatabaseReference()
+				.child("empresaPedidos")
+				.child(getIdEmpresa())
+				.child(getId())
+				.child("statusPedido");
+		empresaStatusPedido.setValue(getStatusPedido());
+
+		DatabaseReference empresaDataStatusPedido = FirebaseHelper.getDatabaseReference()
+				.child("empresaPedidos")
+				.child(getIdEmpresa())
+				.child(getId())
+				.child("dataStatusPedido");
+		empresaDataStatusPedido.setValue(ServerValue.TIMESTAMP);
+
+
+
+
+
+		DatabaseReference usuarioStatusPedido = FirebaseHelper.getDatabaseReference()
+				.child("usuarioPedidos")
+				.child(getIdCliente())
+				.child(getId())
+				.child("statusPedido");
+		usuarioStatusPedido.setValue(getStatusPedido());
+
+		DatabaseReference usuarioDataStatusPedido = FirebaseHelper.getDatabaseReference()
+				.child("usuarioPedidos")
+				.child(getIdCliente())
+				.child(getId())
+				.child("dataStatusPedido");
+		usuarioDataStatusPedido.setValue(ServerValue.TIMESTAMP);
 	}
 
 	public String getId() {

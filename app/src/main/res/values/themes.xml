@@ -14,6 +14,11 @@
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
+    <style name="CustomAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/bg_dialog_status</item>
+        <item name="android:windowMinWidthMinor">80%</item>
+    </style>
+
     <style name="Theme.IfoodClone2" parent="Theme.IfoodClone">
         <item name="colorPrimaryVariant">@color/cor_principal</item>
         <item name="android:windowLightStatusBar">false</item>
